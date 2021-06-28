@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>김프알리미 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'sb-admin-2.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">계정 만들기!</h1>
+                            </div>
+                            <form class="user" method="post">
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-3">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="exampleInputPassword" name="username" placeholder="아이디">
+                                    </div>
+                                    <div class="col-sm-12 mb-3 mb-sm-3">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" name="password" placeholder="비밀번호">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    가입하기
+                                </button>
+                                <hr>
+                                {% if error %}
+                                <div class="text-center" style="color: red;">{{ error }}</div>
+                                {% else %}
+                                <div class="text-center" style="color: blue">
+                                    <h1 class="h4 text-gray-900 mb-4">알고 계셨나요?</h1>
+                                    <h4 class="h6 text-gray-500 mb-4">비트코인이 폭락하며 경찰은 마포대교 순찰을 강화한다는 방침을 발표했습니다.
+ 
+                                        경찰에 따르면 1시간에 한 번씩 순찰차가 마포대교 양방향을 수색 중이며, 현재까지 특이사항은 없는 것으로 전해졌습니다. 
+                                        
+                                        경찰의 마포대교 순찰 강화는 비트코인 폭락에 따른 사고 발생을 방지하기 위함입니다. 지난 23일, 비트코인 가격은 오후 5500만원대로 하락했습니다. 온라인 커뮤니티에서는 암호화폐 투자와 관련 우울함을 호소하는 글이 올라왔습니다.</h4>
+                                </div>
+                                {% endif %}
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="https://health.chosun.com/site/data/html_dir/2019/11/22/2019112202359.html">비밀번호를 잊으셨나요?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="{% url 'login' %}">이미 계정이 있으신가요? 로그인하세요!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

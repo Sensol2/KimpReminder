@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block header %}
+{% load webpush_notifications %}
+{% webpush_header %}
+{% endblock %}
+{% block content %}
+  {% webpush_button %}
+  {% for post in posts %}
+  <div>
+    <ul>
+      <li>
+        <a href="{% url 'detail' post.pk %}">{{ post.title }}</a>
+      </li>
+    </ul>
+  </div>
+  {% endfor %}
+  <a href="{% url 'new' %}">글 쓰러가기</a>
+{% endblock content %}
