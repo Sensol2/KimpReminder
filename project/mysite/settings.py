@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +24,7 @@ SECRET_KEY = 'django-insecure-s-=-%g^-=ug2hwq$6b*7o$c1iir3$kn%(lyx(0+m%teg+8f%3e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.27.6.169', '127.0.0.1']
 
 
 # Application definition
@@ -39,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     "django_apscheduler",
-    'webpush'
+    'webpush',
+    'requests',
 ]
 
 # Scheduler 설정

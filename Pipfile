@@ -9,6 +9,8 @@ django = "*"
 celery = "*"
 redis = "*"
 django-apscheduler = "*"
+bitbank-client = "*"
+requests = "*"
 
 [dev-packages]
 

@@ -2,15 +2,24 @@
 # https://github.com/LuxunHuang/DjangoApscheduler101/blob/master/weather/views.py
 
 import time
-from app.webpush import episode_webpush
+from app.webpusher import episode_webpush
 from apscheduler.schedulers.background import BackgroundScheduler
 from django_apscheduler.jobstores import DjangoJobStore,\
     register_events, register_job
+# from django.apps import AppConfig
 
 # thread 실행 인스턴스 생성하기
 scheduler = BackgroundScheduler()
 scheduler.add_jobstore(DjangoJobStore(), "default")
 
+
+# 시작할때 실행
+# class MyAppConfig(AppConfig):
+#     name = 'app'
+
+#     def ready(self):
+#         print("시작")
+#         pass
 
 # 실행할 함수 Sample
 class TT:

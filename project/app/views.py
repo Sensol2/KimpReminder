@@ -2,7 +2,7 @@
 
 # 스케쥴러, 웹푸시 모듈
 from app.scheduler import start_schedule
-from app.webpush import episode_webpush
+from app.webpusher import episode_webpush
 
 from django.shortcuts import render, redirect
 from .models import Post, Comment
@@ -10,9 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
-
-
-# # Create scheduler to run in a thread inside the application process
+# Create scheduler to run in a thread inside the application process
 
 def hello(request):
     print("Hello")
@@ -22,7 +20,6 @@ def hello(request):
 
 def home(request):
     posts = Post.objects.all()
-    #start_schedule()
     return render(request, 'home.html', { 'posts': posts })
 
 @login_required
