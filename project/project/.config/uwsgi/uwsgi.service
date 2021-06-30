@@ -1,0 +1,14 @@
+Description=uWSGI service
+After=syslog.target
+
+[Service]
+ExecStart=/home/ubuntu/.local/share/virtualenvs/KimpReminder-ViWKZ0oc/bin/uwsgi -i /home/ubuntu/KimpReminder/project/project/.config/uwsgi/mysite.ini
+
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
