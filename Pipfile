@@ -11,6 +11,7 @@ redis = "*"
 django-apscheduler = "*"
 bitbank-client = "*"
 requests = "*"
+django-sslserver = "*"
 
 [dev-packages]
 
