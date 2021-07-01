@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Create your tests here.
 import json
 from bitbank_client.sync import Client

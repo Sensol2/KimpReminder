@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import logging
 
 from telegram.ext.callbackcontext import CallbackContext
@@ -155,12 +156,6 @@ def start(update, context):
 
     show_markup = InlineKeyboardMarkup(build_menu(show_list, len(show_list) - 1)) # make markup
     update.message.reply_text("김프를 검사할 주기를 설정해주세요. 목표가를 설정하지 않았다면 /set으로 먼저 목표가를 설정해주세요.", reply_markup=show_markup)
-
-def get_jobs_by_name(self, name: str):
-    """Returns a tuple of all *pending/scheduled* jobs with the given name that are currently
-    in the ``JobQueue``.
-    """
-    return tuple(job for job in self.jobs() if job.name == name)
 
 # 해당 id의 스케쥴러 제거
 def stop(update, context):
