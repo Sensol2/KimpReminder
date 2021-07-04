@@ -10,19 +10,16 @@ import pybithumb
 
 
 def CurrencyConverter(value, old='KRW', new='USD'):
-    today = date.today()
-    yesterday = date.today() - timedelta(1)
-    today_str = today.strftime("%Y-%m-%d")
-    yesterday_str = yesterday.strftime("%Y-%m-%d")
-
     # print(today)
-    df = fdr.DataReader(old+'/'+new, today_str)
+    for i in range (999):
+        currentDate = date.today() - timedelta(i)
+        currentDate_str = currentDate.strftime("%Y-%m-%d")
+        df = fdr.DataReader(old+'/'+new, currentDate_str)
 
-    if df.empty: #현재 환율 정보가 없으면 어제 환율로 계산
-        df = fdr.DataReader(old+'/'+new, yesterday_str)
-        return df.Close[0] * value
-    else:
-        return df.Close[0] * value
+        if df.empty: #현재 환율 정보가 없으면 어제 환율로 계산
+            continue
+        else:
+            return df.Close[0] * value
 
 #업비트 판매가 불러오기
 def getUpbitSellPrice():
@@ -86,10 +83,3 @@ def getKimpRate(index = 0):
 # print("빗썸 리플 구매가격(원)", getBithumbSellPrice(), "원")
 # print("김프 : ", getKimpRate(), "%")
 
-# 업비트 키
-# gXR84QG9PGn7c4TomYrA07mm8Q1C8IdxdcJmFi3z
-# x7cyRBK8BvIhWh5bZPgUJVmjGh6TFO9q6x3hWJuU
-
-# 바이낸스 키
-# DIxUL0N5etQwQMrEIwTHqLstkgcn8EhZGTiNJ8WVVcWBRDThUsj6mBlmzWn9IkB
-# GXu1H56wefvy09l330akRwsTX7MdW71mMCgQ3Kw5745BOUKSpvdS8oWiXjNbRGd2
